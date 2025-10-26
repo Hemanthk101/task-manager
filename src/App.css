@@ -149,3 +149,21 @@
   background: rgba(0, 50, 100, 0.4);
 }
 
+/* Glowing effect for checked checkboxes */
+input[type="checkbox"] {
+  accent-color: #00eaff; /* cyan theme */
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.3));
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #00ffee;
+  box-shadow: 0 0 12px 2px rgba(0, 255, 255, 0.7);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+  transform: scale(1.25);
+}
+
+input[type="checkbox"]:hover {
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.5));
+}
+
