@@ -26,12 +26,16 @@ function App() {
 
   // ✅ Checkboxes that control the second circular progress bar
   const [tasks, setTasks] = useState([
+    //daily routine
     { id: 1, label: "Push ups", completed: false, section: "fitness" },
     { id: 2, label: "Pull ups", completed: false, section: "fitness" },
     { id: 3, label: "Bicep curls", completed: false, section: "fitness" },
+    
+    //
     { id: 4, label: "Concentration curls", completed: false, section: "fitness" },
     { id: 5, label: "Hammer curls", completed: false, section: "fitness" },
     { id: 6, label: "Meditation", completed: false, section: "wellness" },
+    { id: 7, label: "Drink water", completed: false, section: "morning" },
     { id: 7, label: "Drink water", completed: false, section: "morning" },
   ]);
 
@@ -178,15 +182,13 @@ function App() {
 
               {/* Checkboxes grouped into sections */}
               <div style={{ marginTop: "30px", textAlign: "left" }}>
-                <h2 style={{ color: "#bffcff", textAlign: "center" }}>
-                  Daily Tasks
-                </h2>
+                
 
-                {/* 🌅 Morning Routine Section */}
+                {/* Daily Routine */}
                 <div style={{ marginBottom: "15px" }}>
-                  <h3 style={{ color: "#00ffff" }}>🌅 Morning Routine</h3>
+                  <h3 style={{ color: "#00ffff" }}>Daily Routine</h3>
                   {tasks
-                    .filter((t) => t.section === "morning")
+                    .filter((t) => t.section === "daily routine")
                     .map((task) => (
                       <label
                         key={task.id}
@@ -212,9 +214,9 @@ function App() {
                     ))}
                 </div>
 
-                {/* 💪 Fitness Goals Section */}
+                {/* Biceps */}
                 <div style={{ marginBottom: "15px" }}>
-                  <h3 style={{ color: "#ffcc00" }}>💪 Fitness Goals</h3>
+                  <h3 style={{ color: "#ffcc00" }}>Bicep</h3>
                   {tasks
                     .filter((t) => t.section === "fitness")
                     .map((task) => (
@@ -242,9 +244,67 @@ function App() {
                     ))}
                 </div>
 
-                {/* 🧘 Wellness Section */}
                 <div style={{ marginBottom: "15px" }}>
-                  <h3 style={{ color: "#ff88ff" }}>🧘 Wellness Habits</h3>
+                  <h3 style={{ color: "#00ffff" }}>Triceps</h3>
+                  {tasks
+                    .filter((t) => t.section === "daily routine")
+                    .map((task) => (
+                      <label
+                        key={task.id}
+                        style={{
+                          display: "block",
+                          margin: "8px 0",
+                          color: task.completed ? "#00ffcc" : "#bffcff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={task.completed}
+                          onChange={() => toggleTask(task.id)}
+                          style={{
+                            marginRight: "10px",
+                            transform: "scale(1.2)",
+                            cursor: "pointer",
+                          }}
+                        />
+                        {task.label}
+                      </label>
+                    ))}
+                </div>
+                
+                <div style={{ marginBottom: "15px" }}>
+                  <h3 style={{ color: "#00ffff" }}>Abs</h3>
+                  {tasks
+                    .filter((t) => t.section === "daily routine")
+                    .map((task) => (
+                      <label
+                        key={task.id}
+                        style={{
+                          display: "block",
+                          margin: "8px 0",
+                          color: task.completed ? "#00ffcc" : "#bffcff",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={task.completed}
+                          onChange={() => toggleTask(task.id)}
+                          style={{
+                            marginRight: "10px",
+                            transform: "scale(1.2)",
+                            cursor: "pointer",
+                          }}
+                        />
+                        {task.label}
+                      </label>
+                    ))}
+                </div>
+
+                {/* 🧘Shoulder */}
+                <div style={{ marginBottom: "15px" }}>
+                  <h3 style={{ color: "#ff88ff" }}>Shoulder</h3>
                   {tasks
                     .filter((t) => t.section === "wellness")
                     .map((task) => (
