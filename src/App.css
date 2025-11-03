@@ -1,10 +1,37 @@
-#root {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+:root {
+  /* theme colors */
+  --bg-card: rgba(0, 20, 50, 0.25);
+  --bg-card-hover: rgba(0, 20, 50, 0.25);
+  --border-cyan: rgba(0, 255, 255, 0.9);            /* brighter border */
+  --text-primary: #00f0ff;
+  --text-soft: #eaffff;
+
+  /* card glow base */
+  --glow-cyan-main: rgba(0, 255, 255, 1);           /* was 0.7 */
+  --glow-cyan-mid: rgba(0, 255, 255, 0.7);          /* was 0.4 */
+  --glow-cyan-far: rgba(0, 255, 255, 0.45);         /* was 0.3 */
+
+  /* card glow hover */
+  --glow-cyan-hover-main: rgba(0, 255, 255, 1);     /* was 0.9 */
+  --glow-cyan-hover-mid: rgba(0, 255, 255, 0.9);    /* was 0.6 */
+  --glow-cyan-hover-far: rgba(0, 255, 255, 0.6);    /* was 0.4 */
+
+  /* circle halos */
+  --halo-cyan-main: rgba(0, 255, 255, 1);           /* was 0.8 */
+  --halo-cyan-mid: rgba(0, 255, 255, 0.8);          /* was 0.4 */
+  --halo-cyan-far: rgba(0, 255, 255, 0.5);          /* was 0.2 */
+
+  --halo-yellow-main: rgba(255, 255, 200, 1);       /* brighter */
+  --halo-yellow-mid: rgba(255, 255, 200, 0.8);
+  --halo-yellow-far: rgba(255, 255, 200, 0.5);
+  --halo-yellow-inner: rgba(255, 255, 200, 0.2);    /* stronger inner bloom */
+
+  --blur-card: 22px;
+  --blur-card-hover: 32px;                          /* more blur on hover */
+  --saturate-card: 220%;                            /* bump saturation */
+  --saturate-card-hover: 260%;
 }
+
 
 .logo {
   height: 6em;
@@ -166,4 +193,104 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:hover {
   filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.5));
 }
+
+.CircularProgressbar-path {
+  filter: drop-shadow(0 0 6px currentColor);
+  transition: filter 0.4s ease, stroke 0.4s ease;
+}
+
+.linear-bar-glow {
+  filter: drop-shadow(0 0 6px currentColor);
+  transition: filter 0.4s ease, stroke 0.4s ease;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.6);
+    transform: scaleX(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 1),
+                0 0 45px rgba(0, 255, 255, 0.9);
+    transform: scaleX(1.02);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+                0 0 20px rgba(0, 255, 255, 0.6);
+    transform: scaleX(1);
+  }
+}
+
+.pulse-bar {
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+.skin-task-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px;
+  align-items: center;
+}
+.skin-task-row label {
+  white-space: nowrap;
+}
+.CircularProgressbar-path {
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.6))
+          drop-shadow(0 0 12px rgba(0, 255, 255, 0.35));
+}
+
+.CircularProgressbar-text {
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.6));
+}
+.circle-wrapper {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* soft inner bloom */
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 255, 255, 0.15) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+/* cyan / teal glow */
+.circle-cyan {
+  box-shadow:
+    0 0 20px var(--halo-cyan-main),
+    0 0 60px var(--halo-cyan-mid),
+    0 0 120px var(--halo-cyan-far),
+    0 0 200px rgba(0, 255, 255, 0.25);
+}
+
+
+
+/* pale yellow glow */
+.circle-yellow {
+  box-shadow:
+    0 0 20px var(--halo-yellow-main),
+    0 0 60px var(--halo-yellow-mid),
+    0 0 120px var(--halo-yellow-far),
+    0 0 200px rgba(255, 255, 200, 0.25);
+
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--halo-yellow-inner) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+
+/* makes sure we don't inherit some weird filter that squares it */
+.circle-wrapper * {
+  filter: none;
+}
+
 
