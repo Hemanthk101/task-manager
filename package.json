@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --clearScreen=false --debug",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "mongodb": "^6.20.0",
     "react": "^19.1.1",
     "react-circular-progressbar": "^2.2.0",
     "react-dom": "^19.1.1"

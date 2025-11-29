@@ -237,14 +237,12 @@ input[type="checkbox"]:hover {
 .skin-task-row label {
   white-space: nowrap;
 }
-.CircularProgressbar-path {
-  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.6))
-          drop-shadow(0 0 12px rgba(0, 255, 255, 0.35));
+/* remove the square-ish SVG glow inside GlowCircle; let the wrapper do it */
+.glow-circle .CircularProgressbar-path,
+.glow-circle .CircularProgressbar-text {
+  filter: none !important;
 }
 
-.CircularProgressbar-text {
-  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.6));
-}
 .circle-wrapper {
   width: 160px;
   height: 160px;
