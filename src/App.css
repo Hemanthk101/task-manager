@@ -14,7 +14,7 @@
   /* card glow hover */
   --glow-cyan-hover-main: rgba(0, 255, 255, 1);     /* was 0.9 */
   --glow-cyan-hover-mid: rgba(0, 255, 255, 0.9);    /* was 0.6 */
-  --glow-cyan-hover-far: rgba(0, 255, 255, 0.6);    /* was 0.4 */
+  --glow-cyan-hover-far: rgba(0, 255, 255, 0.6);    /* was 0.45 */
 
   /* circle halos */
   --halo-cyan-main: rgba(0, 255, 255, 1);           /* was 0.8 */
